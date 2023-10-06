@@ -103,8 +103,7 @@ function extractDomain(url) {
  * Prepare final data
  */
 function prepareFinalData(data, domain) {
-  console.log(typeof data);
-  let finalData = data.replaceAll(/.(?<=="\/)(?<=.[^"]+)/gim, `${domain}/`);
+  let finalData = data.replace(/.(?<=="\/)(?<=.[^"]+)/gim, `${domain}/`);
   return finalData;
 }
 
