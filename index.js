@@ -103,6 +103,7 @@ function extractDomain(url) {
  * Prepare final data
  */
 function prepareFinalData(data, domain) {
+  console.log(typeof data);
   let finalData = data.replaceAll(/.(?<=="\/)(?<=.[^"]+)/gim, `${domain}/`);
   return finalData;
 }
@@ -120,8 +121,6 @@ app.get("/bypass/*", async (req, res) => {
     /**
      * Relative url should be absolute
      */
-
-    console.log(typeof(html))
 
     res.send(prepareFinalData(html, domain));
   } catch (error) {
