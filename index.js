@@ -34,13 +34,14 @@ app.get("/bypass/*", async (req, res) => {
   try {
     const response = await axios.get(url);
     const html = response.data;
+    console.log(response.headers);
 
     /**
      * Relative url should be absolute
      */
 
-    // res.send(prepareFinalData(html, domain));
-    res.send(html);
+    res.send(prepareFinalData(html, domain));
+    // res.send(html);
   } catch (error) {
     console.error(error);
     res.status(500).send("Error occurred while fetching the URL");
