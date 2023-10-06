@@ -121,9 +121,10 @@ app.get("/bypass/*", async (req, res) => {
      * Relative url should be absolute
      */
 
+    console.log(typeof(html))
+
     res.send(prepareFinalData(html, domain));
   } catch (error) {
-    console.log("Error caught")
     console.error(error);
     res.status(500).send("Error occurred while fetching the URL");
   }
